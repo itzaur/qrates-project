@@ -11,6 +11,10 @@ module.exports = {
   mode: mode,
   target: target,
 
+  output: {
+    assetModuleFilename: "images/[hash][ext][query]",
+  },
+
   module: {
     rules: [
       {
@@ -28,6 +32,10 @@ module.exports = {
           "postcss-loader",
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
       },
     ],
   },

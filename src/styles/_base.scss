@@ -1,20 +1,5 @@
 body {
   background-color: var(--clr-bg);
   color: var(--clr-text);
-  font-size: 30px;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-button {
-  font-size: 2rem;
-}
-
-.hero {
-  height: 100vh;
-  background: url("../images/cat.jpeg");
+  font-size: 62.5%;
 }

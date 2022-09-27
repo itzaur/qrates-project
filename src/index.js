@@ -1,15 +1,11 @@
 import "./styles/index.scss";
 
-const hello = {
-  str1: "Hello",
-  str2: "World",
-};
+function importAll(r) {
+  return r.keys().map(r);
+}
 
-const test = {
-  ...hello,
-  str3: "Test1",
-  str4: "Test 2",
-};
+const images = importAll(
+  require.context("../src/images", false, /\.(png|jpe?g|svg)$/)
+);
 
-console.log(hello);
-console.log(test);
+console.log(images);

@@ -1,0 +1,33 @@
+$breakpoints: (
+  "1024->": (
+    min-width: 64em,
+  ),
+  "736->": (
+    min-width: 46em,
+  ),
+  "568->": (
+    min-width: 35.5em,
+  ),
+  "320->": (
+    min-width: 20em,
+  ),
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin flex($dir, $jus, $al) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jus;
+  align-items: $al;
+  gap: var(--gap, 1rem);
+}

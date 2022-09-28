@@ -1,0 +1,231 @@
+.header {
+  @include flex(null, flex-start, center);
+  flex-wrap: wrap;
+
+  padding: 0 1.5vw;
+  border: 3px solid lightgreen;
+
+  font-weight: 700;
+
+  & > * + * {
+    margin-left: 1rem;
+  }
+
+  &__logo {
+    width: 2rem;
+    margin-right: auto;
+    padding-block: 0.4rem;
+
+    @include respond-to("900->") {
+      width: 2.5rem;
+      margin-right: 0;
+    }
+  }
+
+  &__nav {
+    --gap: 1.5vw;
+
+    & a {
+      text-decoration: none;
+      color: var(--clr-text);
+    }
+
+    ul {
+      @include flex(null, flex-start, center);
+      flex-wrap: wrap;
+
+      &:first-child {
+        display: none;
+
+        @include respond-to("900->") {
+          @include flex(null, flex-start, center);
+        }
+      }
+    }
+
+    @include respond-to("900->") {
+      @include flex(null, flex-start, center);
+    }
+
+    &.open {
+      z-index: 1;
+
+      ul {
+        position: fixed;
+        @include flex(column, flex-start, flex-start);
+        top: 0;
+        left: 0;
+
+        li a {
+          color: var(--clr-bg);
+          font-size: 2.5rem;
+          padding-left: 1vw;
+        }
+
+        &:last-child {
+          z-index: -1;
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__login {
+    display: none;
+    position: relative;
+    margin-left: auto;
+
+    border-radius: 10rem;
+    overflow: hidden;
+
+    @include respond-to("900->") {
+      @include flex(null, null, center);
+    }
+  }
+
+  &__menu-logo {
+    @include flex(null, null, center);
+
+    cursor: pointer;
+
+    z-index: 1;
+
+    @include respond-to("900->") {
+      display: none;
+    }
+
+    svg {
+      width: 2.7rem;
+      height: 2.7rem;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--clr-pink);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.3s ease;
+
+  &.active-cursor {
+    width: 3rem;
+    border: 1px solid var(--clr-gray);
+    opacity: 0.3;
+    background-color: var(--clr-pink);
+    transition: width 0.3s ease, opacity 0.3s ease, border 0.2s linear,
+      background-color 0.3s ease-in;
+  }
+}
+
+// .start svg path {
+//   offset-path: path("M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z");
+//   animation: go 2s linear forwards;
+//   transition: 0.3s;
+//   stroke: #1efe64;
+// }
+
+.open svg path {
+  fill: var(--clr-bg);
+}
+
+.openlist {
+  --gap: 0;
+  position: relative;
+  @include flex(null, flex-start, center);
+  // overflow: hidden;
+
+  & i {
+    translate: 0 0 1px;
+    transition: all 0.3s linear;
+  }
+
+  .checklist {
+    --gap: 0.6rem;
+    display: grid;
+    grid-auto-rows: min-content;
+
+    position: absolute;
+    top: 2rem;
+    // height: 0;
+    scale: 1 0;
+    transform-origin: top;
+
+    width: max-content;
+    padding: 1rem;
+    // background-color: var(--clr-text);
+    background-color: transparent;
+    text-transform: initial;
+
+    // transform-origin: 0 0;
+
+    transition: scale 0.4s ease, background-color 0.2s linear;
+
+    li {
+      position: relative;
+      overflow: hidden;
+
+      opacity: 0;
+    }
+
+    & a {
+      position: relative;
+      color: var(--clr-bg);
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--clr-bg);
+        transform-origin: right;
+        scale: 0;
+        transition: scale 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      &:hover:after {
+        scale: 1;
+        transform-origin: left;
+      }
+    }
+  }
+}
+
+.checkbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  cursor: pointer;
+
+  &:checked ~ ul {
+    scale: 1 1;
+
+    background-color: var(--clr-text);
+    transition: scale 0.5s linear, background-color 1s ease;
+  }
+
+  &:checked ~ ul li {
+    opacity: 1;
+    transition: opacity 0.5s linear;
+  }
+
+  &:checked + i {
+    rotate: 180deg;
+    translate: 0 0 1px;
+    opacity: 0.7;
+    transition: all 0.3s linear;
+  }
+}

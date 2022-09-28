@@ -6,4 +6,6 @@
   --clr-text: hsl(0, 0%, 0%);
 
   --fs-160: 1.6rem;
+  --fs-140: clamp(0.8rem, 1.4vw, 1.4rem);
+  --fs-120: clamp(0.8rem, 2vw, 1rem);
 }

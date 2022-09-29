@@ -22,24 +22,24 @@ btnsBox.addEventListener("click", (e) => {
 });
 
 //ANCHOR Cursor functionality
-gsap.set(".cursor", {
+gsap.set(cursor, {
   xPercent: -50,
   yPercent: -50,
   scale: 1,
 });
 
-let xTo = gsap.quickTo(".cursor", "x", {
+let xTo = gsap.quickTo(cursor, "x", {
     duration: 0.6,
     ease: "power3",
   }),
-  yTo = gsap.quickTo(".cursor", "y", {
+  yTo = gsap.quickTo(cursor, "y", {
     duration: 0.6,
     ease: "power3",
   });
 
 window.addEventListener("mousemove", (e) => {
-  xTo(e.pageX);
-  yTo(e.pageY);
+  xTo(e.clientX);
+  yTo(e.clientY);
 });
 
 document.querySelectorAll("a, [data-hover='hover']").forEach((el) => {

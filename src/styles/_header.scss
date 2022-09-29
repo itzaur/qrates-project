@@ -3,7 +3,7 @@
   flex-wrap: wrap;
 
   padding: 0 1.5vw;
-  border: 3px solid lightgreen;
+  // border: 3px solid lightgreen;
 
   font-weight: 700;
 
@@ -156,8 +156,9 @@
 
     position: absolute;
     top: 2rem;
-    // height: 0;
+    // height: auto;
     scale: 1 0;
+    // translate: 0 -100%;
     transform-origin: top;
 
     width: max-content;
@@ -209,9 +210,11 @@
   height: 100%;
   appearance: none;
   cursor: pointer;
+  z-index: 1;
 
   &:checked ~ ul {
     scale: 1 1;
+    // translate: 0 0;
 
     background-color: var(--clr-text);
     transition: scale 0.5s linear, background-color 1s ease;

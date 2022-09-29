@@ -4,3 +4,8 @@ body {
   font-size: 62.5%;
   font-family: "Roboto", sans-serif;
 }
+
+::selection {
+  color: var(--clr-bg);
+  background-color: var(--clr-pink);
+}

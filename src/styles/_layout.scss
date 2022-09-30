@@ -1,0 +1,75 @@
+.choose {
+  @include respond-to("900->") {
+    margin-top: -7rem;
+  }
+
+  &__title {
+    text-align: center;
+    padding: clamp(2rem, 4vw, 5rem);
+    line-height: 1.2;
+  }
+
+  &__container {
+    --gap: 0;
+    @include flex(null, center, stretch);
+    flex-wrap: wrap;
+    border-block: 0;
+
+    @include respond-to("900->") {
+      border-block: 2px solid;
+    }
+
+    & > * + * {
+      border-left: 0;
+
+      @include respond-to("900->") {
+        border-left: 2px solid;
+      }
+    }
+
+    & > * {
+      flex-basis: 100%;
+
+      @include respond-to("900->") {
+        flex-basis: 50%;
+      }
+    }
+  }
+
+  &__box {
+    @include flex(column, flex-start, center);
+    background-color: var(--clr-gray);
+    padding: 8vw;
+    text-align: center;
+
+    &:last-child {
+      background-color: var(--clr-cassette);
+    }
+
+    & > * + * {
+      padding-top: 1rem;
+
+      @include respond-to("900->") {
+        padding-top: 2rem;
+      }
+    }
+
+    & h3 {
+      width: fit-content;
+    }
+
+    & picture {
+      order: -1;
+      max-width: 70%;
+      padding-bottom: 2rem;
+
+      @include respond-to("900->") {
+        & {
+          max-width: 100%;
+          order: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

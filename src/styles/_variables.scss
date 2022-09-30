@@ -4,8 +4,10 @@
   --clr-gray: hsl(65, 10%, 47%);
   --clr-bg: hsl(0, 0%, 100%);
   --clr-text: hsl(0, 0%, 0%);
+  --clr-cassette: hsl(177, 24%, 38%);
 
   --fs-300: 3rem;
+  --fs-250: clamp(1.2rem, 3vw, 2.5rem);
   --fs-160: 1.6rem;
   --fs-140: clamp(0.8rem, 1.4vw, 1.4rem);
   --fs-120: clamp(0.8rem, 2vw, 1rem);

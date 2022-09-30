@@ -74,13 +74,6 @@
       }
     }
 
-    & h3 {
-      display: inline-block;
-      padding: 0.3em 0.6em;
-      font-weight: 400;
-      border: solid var(--clr-text);
-    }
-
     & h1 span {
       position: relative;
       display: inline-block;
@@ -101,6 +94,10 @@
   }
 
   &__img {
+    & img {
+      border: 2px solid;
+    }
+
     &--1 {
       grid-area: img1;
 
@@ -142,4 +139,12 @@
       justify-self: center;
     }
   }
+}
+
+.border-el {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-weight: 400;
+  border: solid var(--clr-text);
+  background-color: var(--clr-bg);
 }

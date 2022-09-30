@@ -8,7 +8,9 @@
     padding: clamp(2rem, 4vw, 5rem);
     line-height: 1.2;
   }
+}
 
+.section {
   &__container {
     --gap: 0;
     @include flex(null, center, stretch);
@@ -42,15 +44,18 @@
     padding: 8vw;
     text-align: center;
 
+    &--bg {
+      --clr-gray: var(--clr-yellow);
+      --clr-cassette: hsl(65, 10%, 47%);
+    }
+
     &:last-child {
       background-color: var(--clr-cassette);
     }
 
     & > * + * {
-      padding-top: 1rem;
-
       @include respond-to("900->") {
-        padding-top: 2rem;
+        --flow-space: 2rem;
       }
     }
 
@@ -62,6 +67,7 @@
       order: -1;
       max-width: 70%;
       padding-bottom: 2rem;
+      margin-top: auto;
 
       @include respond-to("900->") {
         & {
@@ -70,6 +76,35 @@
           padding-bottom: 0;
         }
       }
+    }
+  }
+}
+
+.production {
+  &__title {
+    display: block;
+
+    width: fit-content;
+    margin-inline: auto;
+    padding: 1rem;
+    text-align: center;
+    font-weight: normal;
+
+    @include respond-to("900->") {
+      padding: 3rem;
+    }
+
+    & span {
+      font-weight: 600;
+      margin-bottom: 4rem;
+    }
+
+    i {
+      transition: scale 0.3s linear;
+    }
+
+    &:hover i {
+      scale: 1.3;
     }
   }
 }

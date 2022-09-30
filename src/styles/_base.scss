@@ -9,3 +9,7 @@ body {
   color: var(--clr-bg);
   background-color: var(--clr-pink);
 }
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}

@@ -164,3 +164,30 @@ document.addEventListener("click", (e) => {
     }
   });
 });
+
+//ANCHOR Change text on resize page
+let textBox = document.querySelector(".production");
+const text = {
+  mobile: `
+  <h2 class="production__title fs-140"><span class="fs-240">Find your fit</span><br/>
+      Choose the best Qrates project type to suit your needs <i class="bx bx-down-arrow-alt"></i></h2>
+  `,
+  desktop: `
+<h2 class="production__title fs-150">No matter where you’re at in your career, we’ve got a production model
+to suit you.</h2>
+`,
+};
+
+function changeText() {
+  let textElement = document.querySelector(".production__title");
+  if (window.innerWidth < 900) {
+    textBox.insertAdjacentHTML("afterbegin", text.mobile);
+    textElement?.remove();
+  } else {
+    textBox.insertAdjacentHTML("afterbegin", text.desktop);
+    textElement?.remove();
+  }
+}
+
+window.addEventListener("resize", changeText);
+changeText();

@@ -26,6 +26,37 @@
       translate: 38%;
     }
   }
+
+  &__learn {
+    &,
+    &:link,
+    &:visited {
+      position: relative;
+      background-color: var(--clr-text);
+      color: var(--clr-bg);
+      border: none;
+      padding: 0.8em 5em;
+      font-weight: 600;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        translate: -100%;
+        background-image: linear-gradient(
+          -45deg,
+          transparent,
+          rgba(255, 255, 255, 0.8),
+          transparent
+        );
+        transition: translate 0.5s linear;
+      }
+
+      &:hover::before {
+        translate: 100%;
+      }
+    }
+  }
 }
 
 .marker {

@@ -217,6 +217,10 @@
       // text-align: center;
       margin-bottom: 4rem;
     }
+
+    & h2 {
+      width: 80%;
+    }
   }
 
   &__network {
@@ -237,5 +241,14 @@
       object-fit: cover;
       border: 2px solid;
     }
+  }
+}
+
+.community {
+  @include flex(column, center, center);
+  padding: 8vw;
+
+  & > * {
+    text-align: center;
   }
 }

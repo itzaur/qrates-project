@@ -32,10 +32,11 @@
     &:link,
     &:visited {
       position: relative;
+      width: 100%;
       background-color: var(--clr-text);
       color: var(--clr-bg);
       border: none;
-      padding: 0.8em 5em;
+      padding: 0.8em 2em;
       font-weight: 600;
 
       &::before {
@@ -54,6 +55,10 @@
 
       &:hover::before {
         translate: 100%;
+      }
+
+      @include respond-to("900->") {
+        width: fit-content;
       }
     }
 

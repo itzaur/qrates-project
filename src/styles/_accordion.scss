@@ -1,0 +1,74 @@
+.services__accordion {
+  height: fit-content;
+  align-self: center;
+  margin: 3vw;
+  font-size: 1.4rem;
+  box-shadow: 0 8px 17px hsl(0deg 0% 0% / 0.2);
+}
+
+.accordion {
+  &-title,
+  &-menu {
+    padding: 0.6rem 2rem;
+    box-shadow: 0 0 2px hsl(0deg 0% 0% / 1);
+  }
+
+  &-title {
+    color: var(--clr-bg);
+    background-color: var(--clr-text);
+  }
+
+  &-menu {
+    position: relative;
+    background-color: var(--clr-bg);
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  &-plus,
+  &-minus {
+    position: absolute;
+    top: 1.6rem;
+    right: 8px;
+    translate: 0 -50%;
+  }
+
+  &-content {
+    height: 0;
+    overflow: hidden;
+
+    & p,
+    & a {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
+    & p {
+      padding-block: 1.3rem;
+    }
+
+    & a {
+      position: relative;
+      color: currentColor;
+      text-decoration: none;
+
+      &:before {
+        position: absolute;
+        content: "";
+        inset: 100% 0 0 0;
+        width: 125%;
+        height: 1px;
+        background-color: currentColor;
+      }
+
+      &:after {
+        position: absolute;
+        content: "\2192";
+        top: -20%;
+        right: -1.2rem;
+      }
+    }
+  }
+}

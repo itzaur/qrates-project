@@ -191,3 +191,118 @@ function changeText() {
 
 window.addEventListener("resize", changeText);
 changeText();
+
+//ANCHOR Accordion functionality
+const accordionGroups = gsap.utils.toArray(".accordion-group");
+const accordionMenus = gsap.utils.toArray(".accordion-menu");
+const accordionMenuToggles = accordionGroups.map(createAnimation);
+
+accordionMenus.forEach((menu) =>
+  menu.addEventListener("click", () => toggleMenu(menu))
+);
+
+function toggleMenu(clickedMenu) {
+  accordionMenuToggles.forEach((toggleFn) => toggleFn(clickedMenu));
+}
+
+function createAnimation(element) {
+  let menu = element.querySelector(".accordion-menu");
+  let box = element.querySelector(".accordion-content");
+  let plusElement = element.querySelector(".accordion-plus");
+  let minusElement = element.querySelector(".accordion-minus");
+
+  gsap.set(box, {
+    height: "auto",
+  });
+
+  let animation = gsap
+    .timeline({ paused: true })
+    .from(box, {
+      height: 0,
+      duration: 0.5,
+      ease: "power1.inOut",
+    })
+    .from(
+      minusElement,
+      {
+        autoAlpha: 0,
+        duration: 0.2,
+        ease: "power1.out",
+      },
+      0
+    )
+    .to(
+      plusElement,
+      {
+        autoAlpha: 0,
+        duration: 0.2,
+        ease: "power1.out",
+      },
+      0
+    )
+    .reverse();
+
+  return function (clickedMenu) {
+    if (clickedMenu === menu) {
+      animation.reversed(!animation.reversed());
+    } else {
+      animation.reverse();
+    }
+  };
+}
+
+// const groups = gsap.utils.toArray(".accordion-group");
+// const menus = gsap.utils.toArray(".accordion-menu");
+// const menuToggles = groups.map(createAnimation);
+
+// menus.forEach((menu) => menu.addEventListener("click", () => toggleMenu(menu)));
+// function toggleMenu(clickedMenu) {
+//   menuToggles.forEach((toggleFn) => toggleFn(clickedMenu));
+// }
+
+// function createAnimation(element) {
+//   let menu = element.querySelector(".accordion-menu");
+//   let box = element.querySelector(".accordion-content");
+//   let plusElement = element.querySelector(".accordion-plus");
+//   let minusElement = element.querySelector(".accordion-minus");
+
+//   gsap.set(box, {
+//     height: "auto",
+//   });
+
+//   const animation = gsap.timeline();
+//   animation
+//     .from(box, {
+//       height: 0,
+//       duration: 0.5,
+//       ease: "power1.inOut",
+//     })
+//     .to(
+//       plusElement,
+//       {
+//         autoAlpha: 0,
+//         duration: 0.2,
+//         ease: "none",
+//       },
+//       0
+//     )
+//     .from(
+//       minusElement,
+//       {
+//         autoAlpha: 0,
+//         duration: 0.2,
+//         ease: "none",
+//       },
+//       0
+//     )
+//     .reverse();
+
+//   return function (clickedMenu) {
+//     if (clickedMenu === menu) {
+//       // animation.reversed(!animation.reversed());
+//       animation.play();
+//     } else {
+//       animation.reverse();
+//     }
+//   };
+// }

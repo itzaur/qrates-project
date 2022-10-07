@@ -251,6 +251,24 @@ function createAnimation(element) {
   };
 }
 
+//ANCHOR Ticker functionality
+// const ticker = document.querySelector(".ticker");
+// const tickerList = document.querySelector(".ticker__list");
+// const ticker = gsap.timeline();
+// ticker.to(".ticker__list", {
+//   xPercent: -100,
+//   repeat: -1,
+//   ease: "none",
+//   duration: 15,
+// });
+
+// const ticker = document.querySelector(".ticker");
+// const tickerList = document.querySelector(".ticker__list");
+// let clone = tickerList.cloneNode(true);
+// let clone2 = tickerList.cloneNode(true);
+// ticker.append(clone);
+// ticker.append(clone2);
+
 // const groups = gsap.utils.toArray(".accordion-group");
 // const menus = gsap.utils.toArray(".accordion-menu");
 // const menuToggles = groups.map(createAnimation);

@@ -324,3 +324,26 @@ function createAnimation(element) {
 //     }
 //   };
 // }
+//ANCHOR Slider functionality
+const slider = document.querySelector(".slider");
+const sliderBox = document.querySelectorAll(".slider__box");
+const sliderCheckbox = document.querySelector(".slider__checkbox");
+const sliderCheckboxElement = document.querySelectorAll(
+  ".slider__checkbox div"
+);
+
+sliderCheckbox.addEventListener("click", (e) => {
+  sliderCheckboxElement.forEach((el) => {
+    el.classList.remove("active");
+  });
+
+  e.target.classList.add("active");
+
+  sliderBox.forEach((box) => {
+    if (e.target.textContent === "2") {
+      box.style.transform = `translateX(-100%)`;
+    } else {
+      box.style.transform = `translateX(0%)`;
+    }
+  });
+});

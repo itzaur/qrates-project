@@ -341,3 +341,141 @@
     animation-play-state: paused;
   }
 }
+
+.slider {
+  --gap: 0;
+  @include flex(null, center, flex-start);
+  position: relative;
+  width: 200%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  &__box {
+    width: 50%;
+    height: 100%;
+    flex-basis: 50%;
+    transition: transform 0.4s ease-in;
+
+    &[data-number="2"] {
+      --clr-yellow: var(--clr-orange);
+
+      .slider-photo {
+        background-image: url("../images/artist2.jpeg");
+      }
+    }
+  }
+
+  &__item {
+    --gap: 0;
+    @include flex(column, center, stretch);
+    flex-wrap: wrap;
+
+    height: 100%;
+
+    & > * {
+      width: 100%;
+      height: 50%;
+      flex-grow: 0;
+
+      @include respond-to("900->") {
+        width: 50%;
+        height: 100%;
+        flex-direction: row;
+      }
+    }
+
+    @include respond-to("900->") {
+      flex-direction: row;
+    }
+  }
+
+  &-content {
+    --flow-space: 4vw;
+
+    padding: 4vw;
+
+    background-color: var(--clr-yellow);
+
+    &:nth-child(1) {
+      --flow-space: 2rem;
+      @include flex(column, flex-start, flex-start);
+    }
+
+    &:nth-child(2) {
+      order: -1;
+
+      @include respond-to("900->") {
+        padding: 0;
+        order: 0;
+      }
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 1rem;
+
+      @include respond-to("900->") {
+        font-size: 1.5rem;
+      }
+    }
+
+    &-text {
+      --gap: 1.5rem;
+      @include flex(column, null, null);
+      margin-top: 1rem;
+
+      @include respond-to("900->") {
+        margin-block: auto;
+      }
+    }
+
+    @include respond-to("900->") {
+      padding: 2rem;
+    }
+  }
+
+  &-photo {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url("../images/artist1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid;
+
+    @include respond-to("900->") {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__checkbox {
+    --gap: 1rem;
+    @include flex(null, null, null);
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+
+    & > * {
+      display: grid;
+      place-items: center;
+      width: 3rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 2px solid;
+      cursor: pointer;
+
+      &.active {
+        background-color: var(--clr-text);
+        color: var(--clr-bg);
+        border-color: var(--clr-text);
+      }
+    }
+
+    @include respond-to("900->") {
+      bottom: 2rem;
+    }
+  }
+}

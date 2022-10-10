@@ -14,4 +14,10 @@
   --fs-150: 1.5rem;
   --fs-140: clamp(1rem, 1.4vw, 1.4rem);
   --fs-120: clamp(0.8rem, 1.44vw, 1rem);
+
+  --ticker-gap: 2rem;
+
+  @include respond-to("900->") {
+    --ticker-gap: 5rem;
+  }
 }

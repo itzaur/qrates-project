@@ -261,7 +261,7 @@
   gap: 0.2rem;
   padding: 0.2rem;
 
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-template-rows: fit-content;
   grid-auto-rows: max-content;
   // border: 2px solid var(--clr-text);
@@ -280,10 +280,6 @@
       object-fit: cover;
       scale: 1.15;
       transition: scale 0.4s ease-in;
-
-      // &:hover {
-      //   scale: 1;
-      // }
     }
 
     & a {
@@ -319,18 +315,17 @@
 }
 
 .ticker {
-  --gap: 4rem;
+  --gap: var(--ticker-gap);
   @include flex(null, space-between, center);
   padding: 3vw 0;
   overflow: hidden;
 
   &__list {
-    --gap: 3rem;
+    --gap: var(--ticker-gap);
     @include flex(null, space-between, center);
     flex: 1 0 auto;
 
     padding: 1rem 0;
-    margin-right: -2rem;
 
     animation: ticker 15s infinite linear;
   }

@@ -1,5 +1,19 @@
 @keyframes ticker {
-  100% {
-    translate: -100%;
+  0% {
+    translate: 0%;
   }
+
+  // 50% {
+  //   translate: -100%;
+  // }
+
+  100% {
+    translate: calc(-100% - var(--ticker-gap));
+  }
+  // 0% {
+  //   transform: translateZ(0);
+  // }
+  // to {
+  //   transform: translate3d(calc(-100% - 3rem), 0, 0);
+  // }
 }

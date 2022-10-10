@@ -223,6 +223,11 @@
     & h2 {
       width: 80%;
     }
+
+    img {
+      height: 100%;
+      margin-inline: auto;
+    }
   }
 
   &__network {
@@ -400,6 +405,12 @@
     &:nth-child(1) {
       --flow-space: 2rem;
       @include flex(column, flex-start, flex-start);
+
+      border-top: 0;
+
+      @include respond-to("900->") {
+        border-top: 2px solid;
+      }
     }
 
     &:nth-child(2) {

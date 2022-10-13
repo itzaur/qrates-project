@@ -347,3 +347,15 @@ sliderCheckbox.addEventListener("click", (e) => {
     }
   });
 });
+
+//ANCHOR Studio images functionality
+// const studioImgs = gsap.utils.toArray(".studio-img");
+const imagesAnim = gsap.timeline();
+imagesAnim.from(".studio-img", {
+  autoAlpha: 0,
+  duration: 0.1,
+  stagger: { each: 1.5 },
+  ease: "none",
+  repeat: -1,
+  yoyo: true,
+});

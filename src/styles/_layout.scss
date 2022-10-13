@@ -490,3 +490,126 @@
     }
   }
 }
+
+.studio {
+  --flow-space: 1.5rem;
+  @include flex(column, center, center);
+
+  padding: 10vw;
+
+  background-color: var(--clr-text);
+  color: var(--clr-bg);
+
+  h3 {
+    background-color: transparent;
+    border-color: var(--clr-bg);
+  }
+
+  p {
+    width: min(50rem, 100% - 3rem);
+    // text-align: center;
+  }
+
+  & > *:where(h2, p) {
+    text-align: center;
+    line-height: 1;
+    // color: var(--clr-bg);
+  }
+
+  &__pictures {
+    position: relative;
+    width: min(40rem, 100% - 3rem);
+    aspect-ratio: 16/9;
+
+    & > * {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .studio-img {
+      & img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &--before,
+      &--after {
+        width: 40%;
+        height: 40%;
+
+        @include respond-to("900->") {
+          width: 50%;
+          height: 50%;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &--before {
+        width: 60%;
+        height: 60%;
+        left: 60%;
+        top: 60%;
+
+        @include respond-to("900->") {
+          left: -60%;
+          top: 40%;
+        }
+
+        img {
+          width: auto;
+          margin-left: auto;
+        }
+      }
+
+      &--after {
+        left: -40%;
+        top: -25%;
+
+        @include respond-to("900->") {
+          left: 110%;
+          top: -30%;
+        }
+
+        img {
+          width: auto;
+          margin-left: auto;
+
+          @include respond-to("900->") {
+            margin-right: auto;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  & h2 span {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2rem;
+      right: 0;
+      width: 100%;
+      height: 3rem;
+      background-image: url(https://assets.qrates.com/assets/common/current/about-current-478d7def54699b2c267677cbf4780cf86d9d2876bbb3cdf44b162adbab279a4c.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+    }
+  }
+
+  button {
+    margin-top: 10vw;
+  }
+}

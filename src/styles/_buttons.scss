@@ -87,6 +87,16 @@
       }
     }
   }
+
+  &-studio {
+    &,
+    &:link,
+    &:visited {
+      padding: 0.5em 4em;
+      background-color: var(--clr-yellow);
+      color: var(--clr-text);
+    }
+  }
 }
 
 .marker {

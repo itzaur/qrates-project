@@ -31,7 +31,7 @@
       ". . img2 img2 img1 img1 img1 ."
       ". . img2 img2 svg svg svg .";
 
-    margin-top: 10rem;
+    margin-top: 3rem;
 
     &:after {
       bottom: 16vh;
@@ -100,9 +100,17 @@
 
     &--1 {
       grid-area: img1;
+      align-self: flex-start;
+
+      @include respond-to("900->") {
+        align-self: center;
+      }
 
       & img {
         rotate: 5deg;
+        @include respond-to("900->") {
+          width: 45vw;
+        }
       }
     }
 
@@ -113,12 +121,17 @@
       align-self: flex-end;
 
       @include respond-to("900->") {
-        grid-column: 3 / span 5;
+        grid-column: 3 / span 3;
         grid-row: 2 / -1;
+        justify-self: center;
       }
 
       & img {
         rotate: -5deg;
+
+        @include respond-to("900->") {
+          width: 50vw;
+        }
       }
     }
   }
@@ -145,6 +158,6 @@
   display: inline-block;
   padding: 0.3em 0.6em;
   font-weight: 400;
-  border: solid var(--clr-text);
+  border: 2px solid var(--clr-text);
   background-color: var(--clr-bg);
 }

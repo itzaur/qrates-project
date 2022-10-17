@@ -154,21 +154,22 @@ menuAnimate();
 
 menuBtn.addEventListener("click", () => {
   active = !active;
-  active ? menuTimeline.play() : menuTimeline.reverse();
-  console.log(active);
+  active ? menuTimeline.timeScale(1).play() : menuTimeline.reverse();
+  // console.log(active);
 
   gsap.to([leftTop, rightTop], {
     y: active ? size.h : 0,
     ease: "power3.out",
-    duration: 2,
+    duration: 1,
   });
 
   gsap.to(middleTop, {
     y: active ? size.h : 0,
     ease: "power3.out",
     delay: 0.12,
-    duration: 2,
+    duration: 1,
   });
+  // munuActiveTimeline.play();
 
   menuBtn.classList.toggle("open");
   document.querySelector(".header__nav").classList.toggle("open");
@@ -190,6 +191,32 @@ const handleResize = () => {
   menuSvg.setAttribute("height", size.h);
   middleTop.x = size.w / 2;
   rightTop.x = size.w;
+
+  if (window.innerWidth > 900 && active) {
+    active = false;
+
+    gsap.to([leftTop, rightTop], {
+      y: !active ? 0 : size.h,
+      ease: "power3.out",
+      duration: 1,
+    });
+
+    gsap.to(middleTop, {
+      y: !active ? 0 : size.h,
+      ease: "power3.out",
+      delay: 0.12,
+      duration: 1,
+    });
+
+    menuTimeline.timeScale(4).reverse();
+
+    document.querySelector(".header__nav").classList.remove("open");
+  }
+
+  if (window.innerWidth < 900 && active) {
+    menuBtnPath.setAttribute("d", "M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z");
+    menuBtn.classList.remove("open");
+  }
 };
 handleResize();
 window.addEventListener("resize", handleResize);

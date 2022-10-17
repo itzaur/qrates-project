@@ -56,16 +56,40 @@
         top: 0;
         left: 0;
 
+        // padding-left: 5vw;
+
         li a {
           color: var(--clr-bg);
-          font-size: 2.5rem;
-          padding-left: 1vw;
+          font-size: clamp(1rem, 7vw, 2.5rem);
+          // padding-left: 1vw;
         }
 
         &:last-child {
-          z-index: -1;
-          visibility: hidden;
-          opacity: 0;
+          // z-index: -1;
+          // visibility: hidden;
+          // opacity: 0;
+
+          @include respond-to("900->") {
+            z-index: -1;
+            visibility: hidden;
+            opacity: 0;
+          }
+        }
+
+        &:not(.checklist) {
+          gap: 2rem;
+          padding-left: 5vw;
+        }
+      }
+
+      .checklist {
+        position: absolute;
+        top: 100%;
+        z-index: 2;
+
+        & li a {
+          font-size: clamp(1rem, 4vw, 1.5rem);
+          color: var(--clr-text);
         }
       }
     }
@@ -98,6 +122,11 @@
     svg {
       width: 2.7rem;
       height: 2.7rem;
+    }
+
+    &.open {
+      position: fixed;
+      right: 0.8rem;
     }
   }
 
@@ -139,14 +168,21 @@
 }
 
 .openlist {
-  --gap: 0;
   position: relative;
   @include flex(null, flex-start, center);
-  // overflow: hidden;
+
+  @include respond-to("900->") {
+    --gap: 0;
+  }
 
   & i {
+    filter: invert(1);
     translate: 0 0 1px;
     transition: all 0.3s linear;
+
+    @include respond-to("900->") {
+      filter: invert(0);
+    }
   }
 
   .checklist {
@@ -190,10 +226,14 @@
         height: 2px;
         bottom: 0;
         left: 0;
-        background-color: var(--clr-bg);
+        background-color: var(--clr-text);
         transform-origin: right;
         scale: 0;
         transition: scale 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+
+        @include respond-to("900->") {
+          background-color: var(--clr-bg);
+        }
       }
 
       &:hover:after {
@@ -216,8 +256,12 @@
     scale: 1 1;
     // translate: 0 0;
 
-    background-color: var(--clr-text);
+    background-color: var(--clr-bg);
     transition: scale 0.5s linear, background-color 1s ease;
+
+    @include respond-to("900->") {
+      background-color: var(--clr-text);
+    }
   }
 
   &:checked ~ ul li {

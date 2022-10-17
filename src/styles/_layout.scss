@@ -67,7 +67,7 @@
       order: -1;
       max-width: 70%;
       padding-bottom: 2rem;
-      margin-top: auto;
+      margin-block: auto;
 
       @include respond-to("900->") {
         & {

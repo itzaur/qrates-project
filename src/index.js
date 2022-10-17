@@ -76,6 +76,45 @@ menuTimeline.to(menuList, {
 //   },
 //   "<0"
 // );
+const menuLists = document.querySelectorAll(".openlist");
+const linkAnim = gsap.timeline({ paused: true });
+
+linkAnim
+  .to(
+    "[data-name='checklist1'] li",
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.4,
+      ease: "power3.out",
+      delay: 0.3,
+      stagger: { each: 0.12 },
+    },
+    0
+  )
+  .to(
+    "[data-name='checklist2'] li",
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.4,
+      ease: "power3.out",
+      delay: 0.2,
+      stagger: { each: 0.15 },
+    },
+    0
+  );
+
+menuLists.forEach((list) =>
+  list.addEventListener("click", (e) => {
+    gsap.set(".checklist li", {
+      autoAlpha: 0,
+      y: -50,
+    });
+
+    linkAnim.restart();
+  })
+);
 
 //ANCHOR Menu
 const menuSvg = document.querySelector("#menu-wrapper");

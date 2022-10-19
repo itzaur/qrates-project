@@ -5,7 +5,7 @@
   grid-template-columns:
     minmax(0, 1rem) minmax(0, 2rem) repeat(4, 1fr) minmax(0, 4rem)
     minmax(0, 1rem);
-  grid-template-rows: repeat(6, minmax(0, 20%));
+  // grid-template-rows: repeat(6, minmax(0, 20%));
   grid-template-areas:
     ". text text text text text text ."
     ". . . img1 img1 img1 img1 ."
@@ -55,7 +55,7 @@
     }
 
     & > *:where(h1, p, h3) {
-      line-height: 1.2;
+      line-height: 1.1;
     }
 
     & > * + * {
@@ -64,6 +64,7 @@
 
     & p {
       font-weight: 500;
+      // line-height: 1;
 
       i {
         transition: scale 0.3s linear;
@@ -76,19 +77,22 @@
 
     & h1 span {
       position: relative;
-      display: inline-block;
+      // display: inline-block;
 
       &::after {
         content: "";
+        display: block;
         position: absolute;
-        bottom: -2.7rem;
+        bottom: -2rem;
         right: 0;
         width: 100%;
-        height: 3rem;
-        background-image: url(https://www.freeiconspng.com/uploads/black-brush-stroke-banner-4.png);
+        // height: 3rem;
+        min-height: 3rem;
+        background-image: url(https://assets.qrates.com/assets/common/current/top-current-9f2aabd8a4603f185f6b1dd4c969d66e274ce5e58e5ce65cc977fc1b9f24c628.png);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: right;
+        filter: brightness(0) contrast(100);
       }
     }
   }
@@ -107,7 +111,9 @@
       }
 
       & img {
+        height: auto;
         rotate: 5deg;
+
         @include respond-to("900->") {
           width: 45vw;
         }

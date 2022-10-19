@@ -1,13 +1,25 @@
 "use strict";
 import "./styles/index.scss";
 
+//ANCHOR Import all images for webpack
 function importAll(r) {
   return r.keys().map(r);
 }
 
 const images = importAll(
-  require.context("../src/images", false, /\.(png|jpe?g|svg)$/)
+  require.context("../src/images", false, /\.(png|jpe?g|svg|webp)$/)
 );
+
+//ANCHOR Preload all images
+const preloadImages = (selector = "img") => {
+  return new Promise((resolve) => {
+    imagesLoaded(document.querySelectorAll(selector), resolve);
+  });
+};
+
+preloadImages().then(() => {
+  document.body.classList.remove("loading");
+});
 
 const btnsBox = document.querySelector(".header__login");
 const btns = document.querySelectorAll(".btn");
@@ -155,7 +167,6 @@ menuAnimate();
 menuBtn.addEventListener("click", () => {
   active = !active;
   active ? menuTimeline.timeScale(1).play() : menuTimeline.reverse();
-  // console.log(active);
 
   gsap.to([leftTop, rightTop], {
     y: active ? size.h : 0,

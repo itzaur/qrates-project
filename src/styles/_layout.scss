@@ -201,7 +201,7 @@
       margin-top: 2rem;
     }
 
-    & figure {
+    & picture {
       width: 90%;
       height: auto;
 
@@ -210,7 +210,7 @@
 
       @include respond-to("900->") {
         height: 20rem;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
       }
     }
 
@@ -263,23 +263,32 @@
 .gallery {
   position: relative;
   display: grid;
-  gap: 0.2rem;
-  padding: 0.2rem;
+
+  gap: 0.1rem;
+  padding: 0.1rem;
 
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-template-rows: fit-content;
   grid-auto-rows: max-content;
+
   // border: 2px solid var(--clr-text);
   background-color: var(--clr-text);
 
   &__item {
     position: relative;
-    width: 100%;
+    aspect-ratio: 1;
+    justify-content: center;
+    // width: 100%;
+
+    // margin: -0.2rem;
+    // border: 2px solid var(--clr-text);
 
     overflow: hidden;
 
     & img {
-      display: block;
+      // display: block;
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -288,13 +297,18 @@
     }
 
     & a {
-      position: absolute;
+      // position: absolute;
+      position: relative;
+      display: block;
       width: 100%;
       height: 100%;
-      z-index: 1;
+      // padding-bottom: 100%;
+      // border: 2px solid var(--clr-text);
+      // z-index: 1;
+      overflow: hidden;
 
-      &:hover + img {
-        scale: 1;
+      &:hover img {
+        scale: 1.01;
       }
     }
   }
@@ -309,7 +323,6 @@
     background-image: url(../images/watching.png);
     background-repeat: no-repeat;
     background-size: contain;
-    // background-color: antiquewhite;
 
     @include respond-to("900->") {
       top: -6rem;
@@ -366,7 +379,8 @@
       --clr-yellow: var(--clr-orange);
 
       .slider-photo {
-        background-image: url("../images/artist2.jpeg");
+        background-image: url("../images/artist2.jpg");
+        background-image: url("../images/artist2.webp");
       }
     }
   }
@@ -451,6 +465,7 @@
     height: 100%;
     margin: 0 auto;
     background-image: url("../images/artist1.jpeg");
+    background-image: url("../images/artist1.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -617,7 +632,7 @@
 //ANCHOR Footer
 .footer {
   --flow-space: 5rem;
-  padding: 4rem 2rem;
+  padding: 4rem clamp(2rem, 5%, 4rem);
 
   background-color: var(--clr-text);
   color: var(--clr-bg);
@@ -629,17 +644,10 @@
   &-box-list {
     --gap: 3rem;
     @include flex(null, center, flex-start);
-
     flex-wrap: wrap;
 
     & > * {
-      flex-grow: 1;
-      // border: 2px solid red;
-      width: min(16rem, 100%);
-
-      @include respond-to("900->") {
-        flex-grow: 0;
-      }
+      flex: 1 1 min(15rem, 100%);
     }
 
     @include respond-to("900->") {
@@ -659,14 +667,6 @@
       place-items: flex-start;
       gap: 0;
     }
-    // @include flex(null, space-between, flex-end);
-    // flex-wrap: wrap;
-
-    // & > * {
-    //   // flex-grow: 1;
-    //   border: 2px solid red;
-    //   // width: min(30rem, 50%);
-    // }
   }
 
   &-list {
@@ -676,6 +676,12 @@
 
     @include respond-to("900->") {
       display: block;
+    }
+
+    &__title {
+      @include respond-to("900->") {
+        margin-bottom: 1.5rem;
+      }
     }
   }
 
@@ -783,5 +789,32 @@
       scale: 0 1;
       transform-origin: 100% 50%;
     }
+  }
+}
+
+.loading {
+  &::before,
+  &:after {
+    position: fixed;
+    content: "";
+    z-index: 9999;
+  }
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-purple);
+  }
+
+  &:after {
+    width: 6rem;
+    height: 6rem;
+    top: 50%;
+    left: 50%;
+    margin: -3rem 0 0 -3rem;
+    border-radius: 50%;
+    background-color: var(--clr-pink);
+    opacity: 0.4;
+    animation: animLoader 0.7s linear infinite alternate forwards;
   }
 }

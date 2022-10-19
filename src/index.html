@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=optional"
       rel="stylesheet"
     />
     <link
@@ -18,9 +19,13 @@
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"
     ></script>
+    <script
+      defer
+      src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"
+    ></script>
     <title>Qrates Project</title>
   </head>
-  <body>
+  <body class="">
     <svg id="menu-wrapper">
       <path id="path" fill="none"></path>
     </svg>
@@ -113,12 +118,23 @@
           and you keep up to 85% of profits.<i class="bx bx-down-arrow-alt"></i>
         </p>
       </div>
-      <figure class="about__img about__img--1">
+      <picture class="about__img about__img--1">
+        <source srcset="images/top_section_image_1.webp" type="image/webp" />
+        <source srcset="images/top_section_image_1.png" type="image/png" />
         <img src="images/top_section_image_1.png" alt="img1" />
-      </figure>
-      <figure class="about__img about__img--2">
+      </picture>
+      <!-- <figure class="about__img about__img--1">
+        <img
+          src="images/top_section_image_1.png"
+          alt="img1"
+          
+        />
+      </figure> -->
+      <picture class="about__img about__img--2">
+        <source srcset="images/top_section_image_2.webp" type="image/webp" />
+        <source srcset="images/top_section_image_2.png" type="image/png" />
         <img src="images/top_section_image_2.png" alt="img2" />
-      </figure>
+      </picture>
       <figure class="about__svg">
         <img src="images/paid_to_artists.svg" alt="img3" />
       </figure>
@@ -138,6 +154,7 @@
             way.
           </p>
           <picture>
+            <source srcset="images/vinyl-love.webp" type="image/webp" />
             <source type="image/png" srcset="images/vinyl-love.png 600vw" />
             <img src="images/vinyl-love.png" alt="vinyl" />
           </picture>
@@ -152,6 +169,7 @@
             on cassette tapes.
           </p>
           <picture>
+            <source srcset="images/cassette-run.webp" type="image/webp" />
             <source type="image/png" srcset="cassette-run.png 600vw" />
             <img src="images/cassette-run.png" alt="cassette" />
           </picture>
@@ -160,10 +178,6 @@
     </section>
 
     <section class="production">
-      <!-- <h2 class="production__title fs-150">
-        No matter where you’re at in your career, we’ve got a production model
-        to suit you.
-      </h2> -->
       <div class="section__container">
         <div class="section__box section__box--bg flow">
           <h3 class="uppercase fs-120 border-el">NO RISK, NO WASTE</h3>
@@ -173,6 +187,7 @@
             records you need, without having to pay anything upfront.
           </p>
           <picture>
+            <source srcset="images/crowdfunding.webp" type="image/webp" />
             <source type="image/png" srcset="crowdfunding.png 600vw" />
             <img src="images/crowdfunding.png" alt="cassette" />
           </picture>
@@ -188,6 +203,7 @@
             we'll take care of the rest.
           </p>
           <picture>
+            <source srcset="images/press_sell.webp" type="image/webp" />
             <source type="image/png" srcset="images/press_sell.png 600vw" />
             <img src="images/press_sell.png" alt="cassette" />
           </picture>
@@ -211,9 +227,11 @@
           YOU MAKE MUSIC. <br />
           WE DO THE REST.
         </h2>
-        <figure class="services-img">
+        <picture class="services-img">
+          <source srcset="images/our_services.webp" type="image/webp" />
+          <source type="image/jpeg" srcset="images/our_services.jpeg" />
           <img src="images/our_services.jpeg" alt="our services" />
-        </figure>
+        </picture>
         <p class="fs-120">
           We want you to be able to put all your energy into the creative side
           of making music. So we created a one-stop shop for everything else.
@@ -427,9 +445,11 @@
     </section>
     <section class="support">
       <div class="support__network">
-        <figure>
+        <picture>
+          <source srcset="images/store_logo.webp" type="image/webp" />
+          <source type="image/png" srcset="images/store_logo.png" />
           <img src="images/store_logo.png" alt="store logo" />
-        </figure>
+        </picture>
         <h3 class="uppercase fs-120 border-el">RETAIL NETWORK</h3>
         <h2 class="fs-160">Worldwide distro, demystified.</h2>
         <p class="fs-140">
@@ -437,9 +457,11 @@
         </p>
       </div>
       <div class="support__help">
-        <figure>
+        <picture>
+          <source srcset="images/support.webp" type="image/webp" />
+          <source type="image/jpeg" srcset="images/support.jpeg" />
           <img src="images/support.jpeg" alt="store logo" />
-        </figure>
+        </picture>
         <h3 class="uppercase fs-120 border-el">CUSTOMER SUPPORT</h3>
         <h2 class="fs-160">Here to help, whenever you need it.</h2>
         <p class="fs-140">
@@ -465,28 +487,32 @@
     </section>
     <section class="gallery">
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/200" alt="image" />
+        <a href="#">
+          <img src="images/dabe.webp" alt="image" />
+        </a>
       </div>
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/300" alt="image" />
+        <a href="#"><img src="images/cat.webp" alt="image" /></a>
       </div>
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/400" alt="image" />
+        <a href="#"><img src="images/eed.webp" alt="image" /></a>
       </div>
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/500" alt="image" />
+        <a href="#"><img src="images/girl.webp" alt="image" /></a>
       </div>
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/600" alt="image" />
+        <a href="#"><img src="images/man-disk.webp" alt="image" /></a>
       </div>
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/700" alt="image" />
+        <a href="#"><img src="images/artist_waves_two.webp" alt="image" /></a>
       </div>
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/800" alt="image" />
+        <a href="#"><img src="images/man.webp" alt="image" /></a>
       </div>
       <div class="gallery__item">
-        <a href="#"></a><img src="https://picsum.photos/900" alt="image" />
+        <a href="#"
+          ><img src="images/top_section_image_1.webp" alt="image"
+        /></a>
       </div>
     </section>
     <section class="ticker">
@@ -593,33 +619,57 @@
         much you'll earn.
       </p>
       <div class="studio__pictures">
-        <figure class="studio-img">
+        <picture class="studio-img">
+          <source srcset="images/sample_4dilla.webp" type="image/webp" />
+          <source type="image/png" srcset="images/sample_4dilla.png" />
           <img src="images/sample_4dilla.png" alt="sample1" />
-        </figure>
-        <figure class="studio-img">
+        </picture>
+        <picture class="studio-img">
+          <source srcset="images/sample_all_india.webp" type="image/webp" />
+          <source type="image/png" srcset="images/sample_all_india.png" />
           <img src="images/sample_all_india.png" alt="sample2" />
-        </figure>
-        <figure class="studio-img">
+        </picture>
+        <picture class="studio-img">
+          <source
+            srcset="images/sample_black_country_disco.webp"
+            type="image/webp"
+          />
+          <source
+            type="image/png"
+            srcset="images/sample_black_country_disco.png"
+          />
           <img src="images/sample_black_country_disco.png" alt="sample3" />
-        </figure>
-        <figure class="studio-img">
+        </picture>
+        <picture class="studio-img">
+          <source srcset="images/sample_blarney.webp" type="image/webp" />
+          <source type="image/png" srcset="images/sample_blarney.png" />
           <img src="images/sample_blarney.png" alt="sample4" />
-        </figure>
-        <figure class="studio-img">
+        </picture>
+        <picture class="studio-img">
+          <source srcset="images/sample_bombay.webp" type="image/webp" />
+          <source type="image/png" srcset="images/sample_bombay.png" />
           <img src="images/sample_bombay.png" alt="sample5" />
-        </figure>
-        <figure class="studio-img">
+        </picture>
+        <picture class="studio-img">
+          <source srcset="images/sample_female.webp" type="image/webp" />
+          <source type="image/png" srcset="images/sample_female.png" />
           <img src="images/sample_female.png" alt="sample6" />
-        </figure>
-        <figure class="studio-img studio-img--after">
+        </picture>
+        <picture class="studio-img studio-img--after">
+          <source srcset="images/dollar.webp" type="image/webp" />
+          <source type="image/png" srcset="images/dollar.png" />
           <img src="images/dollar.png" alt="dollar" />
-        </figure>
-        <figure class="studio-img studio-img--before">
+        </picture>
+        <picture class="studio-img studio-img--before">
+          <source srcset="images/sparkle.webp" type="image/webp" />
+          <source type="image/png" srcset="images/sparkle.png" />
           <img src="images/sparkle.png" alt="sparkle" />
-        </figure>
-        <figure class="studio-img studio-img--before">
+        </picture>
+        <picture class="studio-img studio-img--before">
+          <source srcset="images/sparkle.webp" type="image/webp" />
+          <source type="image/png" srcset="images/sparkle.png" />
           <img src="images/sparkle.png" alt="sparkle" />
-        </figure>
+        </picture>
       </div>
       <button
         class="btn btn__learn btn-studio uppercase fs-140"

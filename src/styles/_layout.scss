@@ -1,6 +1,11 @@
+/*
+*******************
+Choose section
+*******************
+*/
 .choose {
   @include respond-to("900->") {
-    margin-top: -7rem;
+    margin-top: -4rem;
   }
 
   &__title {
@@ -80,6 +85,11 @@
   }
 }
 
+/*
+*******************
+Production section
+*******************
+*/
 .production {
   &__title {
     display: block;
@@ -138,6 +148,11 @@
   }
 }
 
+/*
+*******************
+Services section
+*******************
+*/
 .services {
   @include flex(column, null, null);
   min-height: 100vh;
@@ -182,6 +197,11 @@
   }
 }
 
+/*
+*******************
+Support section
+*******************
+*/
 .support {
   --gap: 0;
   @include flex(null, null, null);
@@ -216,7 +236,7 @@
 
     & p {
       width: 80%;
-      // text-align: center;
+
       margin-bottom: 4rem;
     }
 
@@ -251,6 +271,11 @@
   }
 }
 
+/*
+*******************
+Community section
+*******************
+*/
 .community {
   @include flex(column, center, center);
   padding: 8vw;
@@ -260,6 +285,11 @@
   }
 }
 
+/*
+*******************
+Gallery section
+*******************
+*/
 .gallery {
   position: relative;
   display: grid;
@@ -271,22 +301,16 @@
   grid-template-rows: fit-content;
   grid-auto-rows: max-content;
 
-  // border: 2px solid var(--clr-text);
   background-color: var(--clr-text);
 
   &__item {
     position: relative;
     aspect-ratio: 1;
     justify-content: center;
-    // width: 100%;
-
-    // margin: -0.2rem;
-    // border: 2px solid var(--clr-text);
 
     overflow: hidden;
 
     & img {
-      // display: block;
       position: absolute;
       inset: 0;
       width: 100%;
@@ -297,14 +321,11 @@
     }
 
     & a {
-      // position: absolute;
       position: relative;
       display: block;
       width: 100%;
       height: 100%;
-      // padding-bottom: 100%;
-      // border: 2px solid var(--clr-text);
-      // z-index: 1;
+
       overflow: hidden;
 
       &:hover img {
@@ -332,6 +353,11 @@
   }
 }
 
+/*
+*******************
+Ticker section
+*******************
+*/
 .ticker {
   --gap: var(--ticker-gap);
   @include flex(null, space-between, center);
@@ -360,6 +386,11 @@
   }
 }
 
+/*
+*******************
+Slider section
+*******************
+*/
 .slider {
   --gap: 0;
   @include flex(null, center, flex-start);
@@ -506,6 +537,11 @@
   }
 }
 
+/*
+*******************
+Studio section
+*******************
+*/
 .studio {
   --flow-space: 1.5rem;
   @include flex(column, center, center);
@@ -522,13 +558,11 @@
 
   p {
     width: min(50rem, 100% - 3rem);
-    // text-align: center;
   }
 
   & > *:where(h2, p) {
     text-align: center;
     line-height: 1;
-    // color: var(--clr-bg);
   }
 
   &__pictures {
@@ -629,7 +663,11 @@
   }
 }
 
-//ANCHOR Footer
+/*
+*******************
+Footer
+*******************
+*/
 .footer {
   --flow-space: 5rem;
   padding: 4rem clamp(2rem, 5%, 4rem);
@@ -792,6 +830,11 @@
   }
 }
 
+/*
+*******************
+Images preloader
+*******************
+*/
 .loading {
   &::before,
   &:after {
@@ -813,7 +856,7 @@
     left: 50%;
     margin: -3rem 0 0 -3rem;
     border-radius: 50%;
-    background-color: var(--clr-pink);
+    background-color: var(--clr-bg);
     opacity: 0.4;
     animation: animLoader 0.7s linear infinite alternate forwards;
   }

@@ -1,11 +1,14 @@
 .header {
+  --gap: 0.5rem;
   @include flex(null, flex-start, center);
   flex-wrap: wrap;
 
+  position: sticky;
+
   padding: 0.5rem 1.5vw;
-  // border: 3px solid lightgreen;
 
   font-weight: 700;
+  z-index: 999;
 
   & > * + * {
     margin-left: 1rem;
@@ -31,6 +34,7 @@
     }
 
     ul {
+      --gap: clamp(1rem, 1vw, 1.2rem);
       @include flex(null, flex-start, center);
       flex-wrap: wrap;
 
@@ -56,19 +60,12 @@
         top: 0;
         left: 0;
 
-        // padding-left: 5vw;
-
         li a {
           color: var(--clr-bg);
           font-size: clamp(1rem, 7vw, 2.5rem);
-          // padding-left: 1vw;
         }
 
         &:last-child {
-          // z-index: -1;
-          // visibility: hidden;
-          // opacity: 0;
-
           @include respond-to("900->") {
             z-index: -1;
             visibility: hidden;
@@ -158,13 +155,6 @@
   }
 }
 
-// .start svg path {
-//   offset-path: path("M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z");
-//   animation: go 2s linear forwards;
-//   transition: 0.3s;
-//   stroke: #1efe64;
-// }
-
 .open svg path {
   fill: var(--clr-bg);
 }
@@ -194,18 +184,16 @@
 
     position: absolute;
     top: 2rem;
-    // height: auto;
+
     scale: 1 0;
-    // translate: 0 -100%;
+
     transform-origin: top;
 
     width: max-content;
     padding: 1rem;
-    // background-color: var(--clr-text);
+
     background-color: transparent;
     text-transform: initial;
-
-    // transform-origin: 0 0;
 
     transition: scale 0.4s ease, background-color 0.2s linear;
 
@@ -256,7 +244,6 @@
 
   &:checked ~ ul {
     scale: 1 1;
-    // translate: 0 0;
 
     background-color: var(--clr-bg);
     transition: scale 0.5s linear, background-color 1s ease;

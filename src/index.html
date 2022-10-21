@@ -17,7 +17,11 @@
     />
     <script
       defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"
     ></script>
     <script
       defer
@@ -25,7 +29,7 @@
     ></script>
     <title>Qrates Project</title>
   </head>
-  <body class="">
+  <body class="loading">
     <svg id="menu-wrapper">
       <path id="path" fill="none"></path>
     </svg>
@@ -79,14 +83,14 @@
       <div class="header__login">
         <button
           type="button"
-          class="btn btn--left uppercase fs-140"
+          class="btn btn--left uppercase fs-120"
           data-hover="hover"
         >
           Log in
         </button>
         <button
           type="button"
-          class="btn btn--right fs-140 active"
+          class="btn btn--right fs-120 active"
           data-hover="hover"
         >
           Make your own

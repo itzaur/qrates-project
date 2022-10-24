@@ -396,18 +396,22 @@ Slider section
   @include flex(null, center, flex-start);
   position: relative;
   width: 200%;
+  // width: 100%;
   height: 100vh;
 
   overflow: hidden;
 
   &__box {
     width: 50%;
+    width: 100%;
     height: 100%;
     flex-basis: 50%;
     transition: transform 0.4s ease-in;
 
     &[data-number="2"] {
       --clr-yellow: var(--clr-orange);
+      // position: absolute;
+      // translate: 100%;
 
       .slider-photo {
         background-image: url("../images/artist2.jpg");
@@ -551,6 +555,8 @@ Studio section
   background-color: var(--clr-text);
   color: var(--clr-bg);
 
+  overflow: hidden;
+
   h3 {
     background-color: transparent;
     border-color: var(--clr-bg);
@@ -674,6 +680,8 @@ Footer
 
   background-color: var(--clr-text);
   color: var(--clr-bg);
+
+  overflow: hidden;
 
   @include respond-to("900->") {
     --flow-space: 8rem;

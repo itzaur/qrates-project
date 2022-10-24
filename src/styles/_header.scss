@@ -66,6 +66,12 @@
         }
 
         &:last-child {
+          // --gap: 1rem;
+          // position: relative;
+          // @include flex(row, null, null);
+
+          // margin-right: 4.2rem;
+
           @include respond-to("900->") {
             z-index: -1;
             visibility: hidden;
@@ -88,6 +94,11 @@
           font-size: clamp(1rem, 4vw, 1.5rem);
           color: var(--clr-text);
         }
+      }
+
+      .header__icon {
+        visibility: hidden;
+        opacity: 0;
       }
     }
   }
@@ -119,17 +130,38 @@
     svg {
       width: 2.7rem;
       height: 2.7rem;
+      // filter: invert(1);
+      fill: var(--clr-text);
+
+      // & path {
+      //   fill: var(--clr-text);
+      // }
+      // &.mobile path {
+      //   fill: var(--clr-bg);
+      // }
     }
 
-    &.open {
+    &.open svg {
       position: fixed;
-      right: 0.8rem;
+      right: 0.6rem;
+      fill: var(--clr-bg);
+
+      // svg path {
+      //   fill: var(--clr-bg);
+      // }
     }
   }
 
   &__icon {
     cursor: pointer;
   }
+
+  // &.mobile {
+  //   .header__logo {
+  //     visibility: hidden;
+  //     opacity: 0;
+  //   }
+  // }
 }
 
 .cursor {
@@ -153,10 +185,6 @@
     transition: width 0.3s ease, opacity 0.3s ease, border 0.2s linear,
       background-color 0.3s ease-in;
   }
-}
-
-.open svg path {
-  fill: var(--clr-bg);
 }
 
 .openlist {

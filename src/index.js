@@ -173,6 +173,7 @@ menuBtn.addEventListener("click", () => {
   });
 
   menuBtn.classList.toggle("open");
+  // document.querySelector(".header__menu-logo svg").classList.toggle("mobile");
   document.querySelector(".header__nav").classList.toggle("open");
 
   if (menuBtn.className.includes("open")) {
@@ -180,8 +181,10 @@ menuBtn.addEventListener("click", () => {
       "d",
       "m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
     );
+    document.querySelector("body").style.overflowY = "hidden";
   } else {
     menuBtnPath.setAttribute("d", "M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z");
+    document.querySelector("body").style.overflowY = "visible";
   }
 });
 
@@ -364,19 +367,103 @@ gsap.registerPlugin(ScrollTrigger);
 let headerTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".header",
+    toggleActions: "restart reverse reverse reverse",
     pin: true,
     pinSpacing: false,
     start: "top top",
     endTrigger: ".footer",
     scrub: 1,
   },
-  backgroundColor: "red",
 });
 
 headerTimeline.to(".header", {
   backgroundColor: "white",
   duration: 1,
+  // onStart: () => {
+  //   document.querySelector(".header__menu-logo svg").style.fill = "white";
+  // },
+  // onUpdate: () => {
+  //   document.querySelector(".header__menu-logo svg").style.fill = "white";
+  // },
+  // onComplete: () => {
+  //   document.querySelector("#icon").style.fill = "black";
+  // },
 });
+
+// gsap.to("#icon", {
+//   scrollTrigger: {
+//     trigger: ".footer",
+//     toggleActions: "restart reverse reverse reverse",
+//     // pin: true,
+//     // pinSpacing: false,
+//     start: "top top",
+//     // endTrigger: ".footer",
+//     scrub: 1,
+//     paused: true,
+//   },
+//   fill: "black",
+//   // backgroundColor: "red",
+//   duration: 1,
+//   // scrollTrigger: {
+//   //   trigger: ".footer",
+//   //   start: "0% 50%",
+//   //   markers: true,
+//   //   // endTrigger: ".footer",
+//   //   scrub: true,
+//   //   pin: false,
+//   // },
+//   // onStart: () => {
+//   //   document.querySelector(".header__menu-logo svg").style.fill = "red";
+//   // },
+// });
+
+// gsap.set(".header__menu-logo.open svg", {
+//   fill: "white",
+// });
+// gsap.to(".header__menu-logo.open svg", {
+//   fill: "black",
+//   backgroundColor: "red",
+//   duration: 1,
+//   scrollTrigger: {
+//     trigger: ".header",
+//     start: "0 50%",
+//     markers: true,
+//     endTrigger: ".footer",
+//     scrub: true,
+//     pin: false,
+//   },
+//   onComplete: () => {
+//     document.querySelector(".header__menu-logo svg").style.fill = "red";
+//   },
+// });
+// gsap.fromTo(
+//   ".header__menu-logo svg",
+//   {
+//     fill: "white",
+//   },
+//   {
+//     fill: "black",
+//     filter: "invert(0)",
+//     scrollTrigger: {
+//       trigger: ".header",
+
+//       endTrigger: ".footer",
+//       scrub: true,
+//     },
+//     duration: 1,
+//   }
+// );
+// gsap.to(".open #icon", {
+//   scrollTrigger: {
+//     trigger: ".footer",
+//     start: "top 90%",
+//     toggleActions: "restart reverse reverse reverse",
+//     markers: true,
+//   },
+
+//   fill: "blue",
+//   backgroundColor: "red",
+// });
 
 gsap.from(".choose .section__box:nth-child(2) > *", {
   x: 900,
@@ -385,8 +472,9 @@ gsap.from(".choose .section__box:nth-child(2) > *", {
   scrollTrigger: {
     trigger: ".about",
     toggleActions: "restart none none none",
-    start: "bottom 80%",
+    start: "bottom 95%",
   },
+
   duration: 0.6,
 });
 
@@ -397,7 +485,8 @@ gsap.from(".choose .section__box:nth-child(1) > *", {
   scrollTrigger: {
     trigger: ".about",
     toggleActions: "restart none none none",
-    start: "bottom 80%",
+    start: "bottom 95%",
+    // markers: true,
   },
   duration: 0.6,
 });
@@ -410,6 +499,7 @@ gsap.from(".production .section__box:nth-child(2) > *", {
     trigger: ".choose",
     toggleActions: "restart none none none",
     start: "bottom 80%",
+    // markers: true,
   },
   duration: 0.6,
 });

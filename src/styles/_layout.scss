@@ -301,6 +301,8 @@ Gallery section
   grid-template-rows: fit-content;
   grid-auto-rows: max-content;
 
+  overflow: visible;
+
   &__item {
     position: relative;
 
@@ -399,7 +401,7 @@ Slider section
   @include flex(null, center, flex-start);
   position: relative;
   width: 100%;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 2rem);
 
   // overflow: hidden;
 

@@ -141,17 +141,16 @@
 }
 
 .cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
+  display: none;
+
   width: 1rem;
   aspect-ratio: 1;
   border: 1px solid var(--clr-pink);
   border-radius: 50%;
-  pointer-events: none;
+
   transition: width 0.3s ease;
 
-  z-index: 999;
+  // z-index: 999;
 
   &.active-cursor {
     width: 3rem;
@@ -160,6 +159,22 @@
     background-color: var(--clr-pink);
     transition: width 0.3s ease, opacity 0.3s ease, border 0.2s linear,
       background-color 0.3s ease-in;
+  }
+
+  @media (any-pointer: fine) {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: block;
+    pointer-events: none;
+    z-index: 999;
+
+    // width: 1rem;
+    // aspect-ratio: 1;
+    // border: 1px solid var(--clr-pink);
+    // border-radius: 50%;
+    // transition: width 0.3s ease;
   }
 }
 
@@ -244,7 +259,8 @@
   height: 100%;
   appearance: none;
   cursor: pointer;
-  z-index: 1;
+  z-index: 10;
+  outline: 1px solid green;
 
   &:checked ~ ul {
     scale: 1 1;

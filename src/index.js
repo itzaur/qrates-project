@@ -504,7 +504,7 @@ ScrollTrigger.matchMedia({
       scrollTrigger: {
         trigger: ".choose .section__box:nth-child(1)",
         toggleActions: "restart none none none",
-        start: "bottom 95%",
+        start: "bottom 97%",
       },
 
       duration: 0.6,
@@ -517,7 +517,7 @@ ScrollTrigger.matchMedia({
       scrollTrigger: {
         trigger: ".production .section__box:nth-child(1)",
         toggleActions: "restart none none none",
-        start: "bottom 80%",
+        start: "bottom 97%",
       },
       duration: 0.6,
     });
@@ -530,7 +530,7 @@ ScrollTrigger.matchMedia({
       scrollTrigger: {
         trigger: ".services .services__info",
         toggleActions: "restart none none none",
-        start: "bottom 90%",
+        start: "bottom 98%",
       },
       duration: 0.6,
     });
@@ -542,7 +542,7 @@ ScrollTrigger.matchMedia({
       scrollTrigger: {
         trigger: ".support .support__network",
         toggleActions: "restart none none none",
-        start: "bottom 90%",
+        start: "bottom 97%",
       },
       duration: 0.6,
     });
@@ -586,7 +586,7 @@ ScrollTrigger.matchMedia({
       scrollTrigger: {
         trigger: ".choose",
         toggleActions: "restart none none none",
-        start: "bottom 80%",
+        start: "bottom 90%",
       },
       duration: 0.6,
     });
@@ -599,7 +599,7 @@ ScrollTrigger.matchMedia({
       scrollTrigger: {
         trigger: ".production",
         toggleActions: "restart none none none",
-        start: "bottom 90%",
+        start: "bottom 97%",
       },
       duration: 0.6,
     });

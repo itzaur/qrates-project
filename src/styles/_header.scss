@@ -260,7 +260,6 @@
   appearance: none;
   cursor: pointer;
   z-index: 10;
-  outline: 1px solid green;
 
   &:checked ~ ul {
     scale: 1 1;

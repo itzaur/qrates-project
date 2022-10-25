@@ -294,19 +294,23 @@ Gallery section
   position: relative;
   display: grid;
 
-  gap: 0.1rem;
-  padding: 0.1rem;
+  // gap: 0.1rem;
+  gap: 0;
+  padding: 0.2rem;
 
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-template-rows: fit-content;
   grid-auto-rows: max-content;
 
-  background-color: var(--clr-text);
+  overflow: visible;
 
   &__item {
     position: relative;
     aspect-ratio: 1;
     justify-content: center;
+
+    border: 2px solid var(--clr-text);
+    margin: -2px;
 
     overflow: hidden;
 
@@ -396,7 +400,6 @@ Slider section
   @include flex(null, center, flex-start);
   position: relative;
   width: 200%;
-  // width: 100%;
   height: 100vh;
 
   overflow: hidden;
@@ -410,8 +413,6 @@ Slider section
 
     &[data-number="2"] {
       --clr-yellow: var(--clr-orange);
-      // position: absolute;
-      // translate: 100%;
 
       .slider-photo {
         background-image: url("../images/artist2.jpg");

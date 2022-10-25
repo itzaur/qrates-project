@@ -66,12 +66,6 @@
         }
 
         &:last-child {
-          // --gap: 1rem;
-          // position: relative;
-          // @include flex(row, null, null);
-
-          // margin-right: 4.2rem;
-
           @include respond-to("900->") {
             z-index: -1;
             visibility: hidden;
@@ -130,38 +124,20 @@
     svg {
       width: 2.7rem;
       height: 2.7rem;
-      // filter: invert(1);
-      fill: var(--clr-text);
 
-      // & path {
-      //   fill: var(--clr-text);
-      // }
-      // &.mobile path {
-      //   fill: var(--clr-bg);
-      // }
+      fill: var(--clr-text);
     }
 
     &.open svg {
       position: fixed;
       right: 0.6rem;
       fill: var(--clr-bg);
-
-      // svg path {
-      //   fill: var(--clr-bg);
-      // }
     }
   }
 
   &__icon {
     cursor: pointer;
   }
-
-  // &.mobile {
-  //   .header__logo {
-  //     visibility: hidden;
-  //     opacity: 0;
-  //   }
-  // }
 }
 
 .cursor {
@@ -175,7 +151,7 @@
   pointer-events: none;
   transition: width 0.3s ease;
 
-  z-index: 2;
+  z-index: 999;
 
   &.active-cursor {
     width: 3rem;

@@ -19,6 +19,47 @@ const preloadImages = (selector = "img") => {
 
 preloadImages().then(() => {
   document.body.classList.remove("loading");
+  const startTimeline = gsap.timeline({ duration: 0.5 });
+  startTimeline
+    .from(".header", {
+      yPercent: -100,
+      autoAlpha: 0,
+
+      ease: "back.out",
+    })
+    .from(".about__text h3", {
+      xPercent: -100,
+      autoAlpha: 0,
+
+      ease: "back.out",
+    })
+    .from(
+      ".about__text h1",
+      {
+        xPercent: 100,
+        autoAlpha: 0,
+
+        ease: "back.out",
+      },
+      "<0"
+    )
+    .from(".about__text p", {
+      xPercent: -100,
+      autoAlpha: 0,
+
+      ease: "back.out",
+    })
+    .from(
+      ".about__img",
+      {
+        xPercent: 100,
+        rotation: 90,
+        autoAlpha: 0,
+        duration: 1,
+        ease: "back.out",
+      },
+      1.5
+    );
 });
 
 //ANCHOR Header buttons animation
@@ -173,7 +214,6 @@ menuBtn.addEventListener("click", () => {
   });
 
   menuBtn.classList.toggle("open");
-  // document.querySelector(".header__menu-logo svg").classList.toggle("mobile");
   document.querySelector(".header__nav").classList.toggle("open");
 
   if (menuBtn.className.includes("open")) {
@@ -377,290 +417,279 @@ let headerTimeline = gsap.timeline({
 });
 
 headerTimeline.to(".header", {
-  backgroundColor: "white",
+  backgroundColor: getComputedStyle(document.documentElement).getPropertyValue(
+    "--clr-purple"
+  ),
   duration: 1,
-  // onStart: () => {
-  //   document.querySelector(".header__menu-logo svg").style.fill = "white";
-  // },
-  // onUpdate: () => {
-  //   document.querySelector(".header__menu-logo svg").style.fill = "white";
-  // },
-  // onComplete: () => {
-  //   document.querySelector("#icon").style.fill = "black";
-  // },
 });
 
-// gsap.to("#icon", {
-//   scrollTrigger: {
-//     trigger: ".footer",
-//     toggleActions: "restart reverse reverse reverse",
-//     // pin: true,
-//     // pinSpacing: false,
-//     start: "top top",
-//     // endTrigger: ".footer",
-//     scrub: 1,
-//     paused: true,
-//   },
-//   fill: "black",
-//   // backgroundColor: "red",
-//   duration: 1,
-//   // scrollTrigger: {
-//   //   trigger: ".footer",
-//   //   start: "0% 50%",
-//   //   markers: true,
-//   //   // endTrigger: ".footer",
-//   //   scrub: true,
-//   //   pin: false,
-//   // },
-//   // onStart: () => {
-//   //   document.querySelector(".header__menu-logo svg").style.fill = "red";
-//   // },
-// });
-
-// gsap.set(".header__menu-logo.open svg", {
-//   fill: "white",
-// });
-// gsap.to(".header__menu-logo.open svg", {
-//   fill: "black",
-//   backgroundColor: "red",
-//   duration: 1,
-//   scrollTrigger: {
-//     trigger: ".header",
-//     start: "0 50%",
-//     markers: true,
-//     endTrigger: ".footer",
-//     scrub: true,
-//     pin: false,
-//   },
-//   onComplete: () => {
-//     document.querySelector(".header__menu-logo svg").style.fill = "red";
-//   },
-// });
-// gsap.fromTo(
-//   ".header__menu-logo svg",
-//   {
-//     fill: "white",
-//   },
-//   {
-//     fill: "black",
-//     filter: "invert(0)",
-//     scrollTrigger: {
-//       trigger: ".header",
-
-//       endTrigger: ".footer",
-//       scrub: true,
-//     },
-//     duration: 1,
-//   }
-// );
-// gsap.to(".open #icon", {
-//   scrollTrigger: {
-//     trigger: ".footer",
-//     start: "top 90%",
-//     toggleActions: "restart reverse reverse reverse",
-//     markers: true,
-//   },
-
-//   fill: "blue",
-//   backgroundColor: "red",
-// });
-
-gsap.from(".choose .section__box:nth-child(2) > *", {
-  x: 900,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".about",
-    toggleActions: "restart none none none",
-    start: "bottom 95%",
-  },
-
-  duration: 0.6,
-});
-
-gsap.from(".choose .section__box:nth-child(1) > *", {
-  x: -900,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".about",
-    toggleActions: "restart none none none",
-    start: "bottom 95%",
-    // markers: true,
-  },
-  duration: 0.6,
-});
-
-gsap.from(".production .section__box:nth-child(2) > *", {
-  x: 900,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".choose",
-    toggleActions: "restart none none none",
-    start: "bottom 80%",
-    // markers: true,
-  },
-  duration: 0.6,
-});
-
-gsap.from(".production .section__box:nth-child(1) > *", {
-  x: -900,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".choose",
-    toggleActions: "restart none none none",
-    start: "bottom 80%",
-  },
-  duration: 0.6,
-});
-
-gsap.from(".services .services__info > *", {
-  x: -900,
-  rotation: -15,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".production",
-    toggleActions: "restart none none none",
-    start: "bottom 90%",
-  },
-  duration: 0.6,
-});
-
-gsap.from(".services .services__accordion > *, .services__accordion", {
-  y: 40,
-  autoAlpha: 0,
-  ease: "power1.out",
-  stagger: { each: 0.1 },
-  scrollTrigger: {
-    trigger: ".production",
-    toggleActions: "restart none none none",
-    start: "bottom 90%",
-  },
-  duration: 0.6,
-});
-
-gsap.from(".support .support__network > *", {
-  x: -900,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".services",
-    toggleActions: "restart none none none",
-    start: "bottom 90%",
-  },
-  duration: 0.6,
-});
-
-gsap.from(".support .support__help > *", {
-  x: 900,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".services",
-    toggleActions: "restart none none none",
-    start: "bottom 90%",
-  },
-  duration: 0.6,
-});
-
-gsap.from(".community > *", {
-  y: 200,
-  autoAlpha: 0,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".support",
-    toggleActions: "restart none none none",
-    start: "bottom 90%",
-  },
-  duration: 0.6,
-});
-
-gsap.from(".gallery__item", {
-  y: 200,
-  autoAlpha: 0,
-  scale: 0,
-  rotation: -90,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".community",
-    toggleActions: "restart none none none",
-    start: "bottom 100%",
-  },
-  duration: 0.8,
-  onStart: () => {
-    document.querySelector(".gallery").style.backgroundColor = "transparent";
-  },
-  onComplete: () => {
-    document.querySelector(".gallery").style.backgroundColor = "black";
-  },
-});
-
-gsap.from(".slider", {
-  y: 900,
-  autoAlpha: 0,
-  ease: "power1.out",
-
-  scrollTrigger: {
-    trigger: ".gallery",
-    toggleActions: "restart none none none",
-    start: "bottom 90%",
-  },
-  duration: 1.2,
-});
-
+const footerLinks = gsap.utils.toArray(".footer-list > *");
 function randomNumber(max, min) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-gsap.from(".studio > *", {
-  y: `+=${randomNumber(-300, 300)}`,
-  x: `+=${randomNumber(-300, 300)}`,
+ScrollTrigger.matchMedia({
+  "(min-width: 900px)": function () {
+    gsap.from(".choose .section__box:nth-child(2) > *", {
+      x: 900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".about",
+        toggleActions: "restart none none none",
+        start: "bottom 95%",
+      },
 
-  autoAlpha: 0,
-  ease: "power1.out",
-  stagger: { each: 0.2 },
-  scrollTrigger: {
-    trigger: ".studio",
-    toggleActions: "restart none none none",
-    start: "top 97%",
+      duration: 0.6,
+    });
+
+    gsap.from(".production .section__box:nth-child(2) > *", {
+      x: 900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".choose",
+        toggleActions: "restart none none none",
+        start: "bottom 80%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".services .services__accordion > *, .services__accordion", {
+      y: 40,
+      autoAlpha: 0,
+      ease: "power1.out",
+      stagger: { each: 0.1 },
+      scrollTrigger: {
+        trigger: ".production",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".support .support__help > *", {
+      x: 900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".services",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".gallery__item", {
+      y: 200,
+      autoAlpha: 0,
+      scale: 0,
+      rotation: -90,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".community",
+        toggleActions: "restart none none none",
+        start: "bottom 100%",
+      },
+      duration: 0.8,
+    });
   },
-  duration: 1.2,
-});
 
-const footerLinks = gsap.utils.toArray(".footer-list > *");
+  "(max-width: 900px)": function () {
+    gsap.from(".choose .section__box:nth-child(2) > *", {
+      x: 900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".choose .section__box:nth-child(1)",
+        toggleActions: "restart none none none",
+        start: "bottom 95%",
+      },
 
-footerLinks.forEach((link) => {
-  gsap.from(link, {
-    y: `+=${randomNumber(-400, 400)}`,
-    x: `+=${randomNumber(-400, 400)}`,
+      duration: 0.6,
+    });
 
-    autoAlpha: 0,
-    ease: "power1.out",
-    stagger: { each: 0.02 },
-    scrollTrigger: {
-      trigger: ".studio",
-      toggleActions: "restart none none none",
-      start: "bottom 95%",
-    },
-    duration: 1,
-  });
-});
+    gsap.from(".production .section__box:nth-child(2) > *", {
+      x: 900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".production .section__box:nth-child(1)",
+        toggleActions: "restart none none none",
+        start: "bottom 80%",
+      },
+      duration: 0.6,
+    });
 
-gsap.from(".footer-box-icons", {
-  yPercent: 50,
-  autoAlpha: 0,
-  ease: "power1.out",
-  clearProps: "all",
+    gsap.from(".services .services__accordion > *, .services__accordion", {
+      y: 40,
+      autoAlpha: 0,
+      ease: "power1.out",
+      stagger: { each: 0.1 },
+      scrollTrigger: {
+        trigger: ".services .services__info",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 0.6,
+    });
 
-  scrollTrigger: {
-    trigger: ".footer",
-    toggleActions: "restart none none none",
-    start: "60% 95%",
+    gsap.from(".support .support__help > *", {
+      x: 900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".support .support__network",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 0.6,
+    });
+
+    const galleryItems = gsap.utils.toArray(".gallery__item");
+    galleryItems.forEach((item) => {
+      gsap.from(item, {
+        y: 200,
+        autoAlpha: 0,
+        scale: 0,
+        rotation: -90,
+        ease: "power1.out",
+
+        scrollTrigger: {
+          trigger: item,
+          toggleActions: "restart none none reverse",
+          start: "top bottom",
+        },
+        duration: 0.8,
+        onStart: () => {
+          document.querySelector(".gallery").style.backgroundColor =
+            "transparent";
+        },
+      });
+    });
   },
-  duration: 1,
+
+  all: function () {
+    gsap.from(".choose .section__box:nth-child(1) > *", {
+      x: -900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".about",
+        toggleActions: "restart none none none",
+        start: "bottom 95%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".production .section__box:nth-child(1) > *", {
+      x: -900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".choose",
+        toggleActions: "restart none none none",
+        start: "bottom 80%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".services .services__info > *", {
+      x: -900,
+      rotation: -15,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".production",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".support .support__network > *", {
+      x: -900,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".services",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".community > *", {
+      y: 200,
+      autoAlpha: 0,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".support",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 0.6,
+    });
+
+    gsap.from(".slider", {
+      y: 900,
+      autoAlpha: 0,
+      ease: "power1.out",
+
+      scrollTrigger: {
+        trigger: ".gallery",
+        toggleActions: "restart none none none",
+        start: "bottom 90%",
+      },
+      duration: 1.2,
+    });
+
+    gsap.from(".studio > *", {
+      y: `+=${randomNumber(-300, 300)}`,
+      x: `+=${randomNumber(-300, 300)}`,
+
+      autoAlpha: 0,
+      ease: "power1.out",
+      stagger: { each: 0.2 },
+      scrollTrigger: {
+        trigger: ".studio",
+        toggleActions: "restart none none none",
+        start: "top 97%",
+      },
+      duration: 1.2,
+    });
+
+    footerLinks.forEach((link) => {
+      gsap.from(link, {
+        y: `+=${randomNumber(-400, 400)}`,
+        x: `+=${randomNumber(-400, 400)}`,
+
+        autoAlpha: 0,
+        ease: "power1.out",
+        stagger: { each: 0.02 },
+        scrollTrigger: {
+          trigger: ".studio",
+          toggleActions: "restart none none none",
+          start: "bottom 95%",
+        },
+        duration: 1,
+      });
+    });
+
+    gsap.from(".footer-box-icons", {
+      yPercent: 50,
+      autoAlpha: 0,
+      ease: "power1.out",
+      clearProps: "all",
+
+      scrollTrigger: {
+        trigger: ".footer",
+        toggleActions: "restart none none none",
+        start: "60% 95%",
+      },
+      duration: 1,
+    });
+  },
 });
